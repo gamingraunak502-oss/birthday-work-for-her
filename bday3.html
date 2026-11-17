@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anu 🎂</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ font-family:'Segoe UI',sans-serif;
+ background:linear-gradient(135deg,#ffdae9,#e5d5ff,#ffd5e5);
+ color:#713b61;
+ text-align:center;
+ overflow-x:hidden;
+}
+
+.page{
+ min-height:100vh;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ padding:35px 20px;
+ animation:show .7s ease;
+}
+
+.page.active{display:flex}
+
+@keyframes show{
+ from{opacity:0;transform:translateY(25px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.card{
+ max-width:520px;
+ width:100%;
+ background:#ffffffc9;
+ padding:35px 24px;
+ border-radius:28px;
+ box-shadow:0 12px 40px #a45a8040;
+}
+
+h1{
+ font-size:clamp(38px,9vw,58px);
+ margin:15px 0;
+}
+
+h2{font-size:28px;margin:15px}
+
+p{
+ font-size:18px;
+ line-height:1.8;
+ margin:12px 0;
+}
+
+.emoji{
+ font-size:75px;
+ animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+ 50%{transform:translateY(-12px) scale(1.08)}
+}
+
+button{
+ background:linear-gradient(90deg,#ee599b,#a66bdf);
+ border:none;
+ color:white;
+ padding:14px 26px;
+ border-radius:30px;
+ font-size:16px;
+ margin-top:22px;
+ cursor:pointer;
+ box-shadow:0 5px 15px #a65b9a55;
+}
+
+button:active{transform:scale(.95)}
+
+.highlight{
+ color:#e34891;
+ font-weight:bold;
+}
+
+.balloon{
+ position:fixed;
+ bottom:-100px;
+ font-size:32px;
+ animation:rise 7s linear forwards;
+ pointer-events:none;
+ z-index:5;
+}
+
+@keyframes rise{
+ to{
+  transform:translateY(-120vh) rotate(25deg);
+  opacity:0;
+ }
+}
+
+.final-line{
+ font-size:27px;
+ color:#e34891;
+ font-weight:bold;
+ margin-top:30px;
+ animation:bounce 1.5s infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: WELCOME -->
+
+<section class="page active" id="page1">
+
+ <div class="emoji">🎂</div>
+
+ <p>Aaj ka din hai bahut special...</p>
+
+ <h1>
+ Happy Birthday<br>
+ <span class="highlight">Anu! 💗</span>
+ </h1>
+
+ <div class="card">
+  <p>Hey Anu! 🥰</p>
+
+  <p>
+   Tumhare liye ek chhota sa surprise hai.
+   Isse end tak zaroor dekhna!
+  </p>
+ </div>
+
+ <button onclick="next(2)">
+ Open Your Surprise 🎁
+ </button>
+
+</section>
+
+
+<!-- PAGE 2: BIRTHDAY WISH -->
+
+<section class="page" id="page2">
+
+ <div class="emoji">🌸</div>
+
+ <div class="card">
+
+  <h1>Dear Anu 💕</h1>
+
+  <p>
+   Happy Birthday yrr! 🥳
+   <br><br>
+
+   Bhagwan kare tumhari life mein dher saari
+   khushiyan aayein.
+   Tumhari har wish poori ho aur tum hamesha
+   aise hi hansti-muskurati raho.
+   <br><br>
+
+   Tum jaisi ho, waise hi rehna.
+   Hamesha positive, happy aur mast!
+   <br><br>
+
+   Enjoy your special day! 🦋
+  </p>
+
+ </div>
+
+ <button onclick="next(3)">
+ Ek Aur Baat... 💌
+ </button>
+
+</section>
+
+
+<!-- PAGE 3: LATE SORRY -->
+
+<section class="page" id="page3">
+
+ <div class="emoji">🥺💗</div>
+
+ <div class="card">
+
+  <h1>Sorry Anu!</h1>
+
+  <p>
+   Ek chhoti si baat...
+   <br><br>
+
+   Tumhe birthday wish toh maine aaj kar diya tha,
+   lekin ye special surprise bhejne mein
+   thodi der ho gayi.
+   <br><br>
+
+   Iske liye Sorry yrr! 🥺
+   <br><br>
+
+   Surprise late hai, par tumhare liye wishes
+   aur dosti hamesha dil se hai.
+   ❤️
+  </p>
+
+ </div>
+
+ <button onclick="next(4)">
+ Last Surprise 🎉
+ </button>
+
+</section>
+
+
+<!-- PAGE 4: FINAL SURPRISE -->
+
+<section class="page" id="page4">
+
+ <div class="emoji">🎉🎈</div>
+
+ <div class="card">
+
+  <h1>Stay Blessed Anu! 💖</h1>
+
+  <p>
+   Hamesha khush rehna,
+   <br>
+   khoob tarakki karna,
+   <br>
+   apne saare dreams poore karna.
+   <br><br>
+
+   Aur haan, apni cute si smile kabhi mat khona! 😊
+   <br><br>
+
+   <span class="highlight">
+    Once Again, Happy Birthday Dost!
+   </span>
+
+   <br><br>
+
+   Lots of happiness and best wishes! 🌷
+  </p>
+
+  <div class="emoji">🎂🥳💝</div>
+
+  <button onclick="magic()">
+   Tap For Celebration 🎊
+  </button>
+
+  <p class="final-line">
+   Khikhikhi 🤭
+  </p>
+
+ </div>
+
+ <button onclick="next(1)">
+ Replay ↻
+ </button>
+
+</section>
+
+
+<script>
+
+function next(n){
+
+ document.querySelectorAll('.page').forEach(p=>{
+  p.classList.remove('active');
+ });
+
+ document.getElementById('page'+n).classList.add('active');
+
+ window.scrollTo(0,0);
+
+}
+
+function magic(){
+
+ for(let i=0;i<70;i++){
+
+  let e=document.createElement('div');
+
+  e.className='balloon';
+
+  e.innerHTML=['🎈','💗','🎉','✨','🌸','💝']
+  [Math.floor(Math.random()*6)];
+
+  e.style.left=Math.random()*100+'vw';
+
+  e.style.animationDuration=(3+Math.random()*5)+'s';
+
+  e.style.fontSize=(20+Math.random()*25)+'px';
+
+  document.body.appendChild(e);
+
+  setTimeout(()=>e.remove(),8500);
+
+ }
+
+}
+
+setInterval(()=>{
+
+ let e=document.createElement('div');
+
+ e.className='balloon';
+
+ e.innerHTML=['💗','✨','🌸','💕']
+ [Math.floor(Math.random()*4)];
+
+ e.style.left=Math.random()*100+'vw';
+
+ e.style.animationDuration='7s';
+
+ document.body.appendChild(e);
+
+ setTimeout(()=>e.remove(),7500);
+
+},1200);
+
+</script>
+
+</body>
+</html>
